@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class test {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a, n = 0;
+        // Nên đặt tên biến rõ nghĩa, a là gì, n là gì?
+        int a, n = 0; // a => selection, n => bookNumber
         Book[] books = new Book[100];
         boolean flag = true;
         int currentIndex = n;
@@ -41,14 +42,14 @@ public class test {
                     System.out.printf("%-5s %-15s %-5s %-5s %-10s %-5s %-15s \n", "ID", "Tên sách", "Giá sách", "Ngày phát hành", "Tác Giả", "Ngày bán", "Tên nhà sách");
                     for (int i = 0; i < n; i++) {
 
-                        books[i].hienThiTT();
+                        books[i].hienThiTT(); // check null trước khi thực hiện logic
 
                     }
                     break;
                 case 3:
 
                     System.out.print("nhập id sách cần tìm : ");
-                    int x = sc.nextInt();
+                    int x = sc.nextInt(); // đặt tên biến rõ nghĩa
                     for (int i = 0; i < n; i++) {
                         if (x == books[i].id) {
                             books[i].hienThiTT();
