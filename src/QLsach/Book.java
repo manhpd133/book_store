@@ -3,8 +3,7 @@ package QLsach;
 
 
 // Nên xoá những import không dùng
-import java.util.List;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Book extends Nhasach {
