@@ -1,19 +1,17 @@
 package QLsach;
 
-
 import java.awt.*;
 import java.util.Scanner;
-
 
 public class test {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // Nên đặt tên biến rõ nghĩa, a là gì, n là gì?
-        int a, n = 0; // a => selection, n => bookNumber
+        int selection, bookNumber = 0; // a => selection, n => bookNumber
         Book[] books = new Book[100];
         boolean flag = true;
-        int currentIndex = n;
-        int count = n;
+        int currentIndex = bookNumber;
+
 
         do {
             System.out.println("Bạn chọn làm gì?");
@@ -24,13 +22,13 @@ public class test {
                     "5.xoá sách.\n" +
                     "6.sửa thông tin sách.\n" +
                     "Nhập số khác để thoát.");
-            a = sc.nextInt();
+            selection = sc.nextInt();
 
-            switch (a) {
+            switch (selection) {
                 case 1:
                     System.out.println("Nhập số lương sách cần khai báo: ");
-                    n = sc.nextInt();
-                    int condition = n + currentIndex;
+                    bookNumber = sc.nextInt();
+                    int condition = bookNumber + currentIndex;
                     for (int i = currentIndex; i < condition; i++) {
                         currentIndex++;
                         System.out.println("Sách thứ " + (i + 1) + ": ");
@@ -61,7 +59,7 @@ public class test {
 
                     System.out.print("nhập id sách cần tìm : ");
                     int x = sc.nextInt(); // đặt tên biến rõ nghĩa
-                    for (int i = 0; i < n; i++) {
+                    for (int i = 0; i < bookNumber; i++) {
                         if (books[i] != null && x == books[i].id) {
                             books[i].outputBook();
                         }
@@ -69,7 +67,7 @@ public class test {
                     break;
                 case 4:
                     float tong = 0;
-                    for (int i = 0; i < n; i++) {
+                    for (int i = 0; i < bookNumber; i++) {
                         if (books[i] != null) {
                             tong += books[i].giasach;
                         }
@@ -88,7 +86,7 @@ public class test {
                     // Cần lặp qua các phần tử của mảng books hiện tại, check bookId
                     // Nếu bookId khác với id cần xoá thì thực hiện copy phần tử sang mảng mới tạo arr
 
-                    for (int i = 0; i < n; i++) {
+                    for (int i = 0; i < bookNumber; i++) {
 
                         if (books[i] != null && books[i].id != b) {
 
@@ -107,10 +105,10 @@ public class test {
                     boolean back = true;
 
                     System.out.print("nhập id cuốn sách cần sửa :");
-                    int c = sc.nextInt();
+                    int inputrepairId = sc.nextInt();
                     //Book[] arrnew = new Book[100];
-                    for (int i = 0; i < n; i++) {
-                        if (books[i] != null && c == books[i].id) {
+                    for (int i = 0; i < bookNumber; i++) {
+                        if (books[i] != null && inputrepairId == books[i].id) {
                             books[i].outputBook();
 
                             do {
