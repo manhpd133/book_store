@@ -2,8 +2,11 @@ package QLsach;
 
 public abstract class Nhasach {
     public int id;
+
     public String tennhasach;
+
     public String diachi;
+
 
     public Nhasach () {
 

@@ -1,23 +1,21 @@
 package QLsach;
 
-
-
-// Nên xoá những import không dùng
-
 import java.util.Scanner;
 
 public class Book extends Nhasach {
-//     Một dòng nên khai một biến
-//     Ví dụ:
-//     public int id;
-//
-//     public int ngay_phat_hanh;
+
     public int id;
+
     public int ngayphathanh;
+
     public String tensach;
+
     public String tacgia; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
+
     public float giasach;
+
     public int ngayban;
+
     public String tennhasach;
 
 
@@ -63,8 +61,8 @@ public class Book extends Nhasach {
         return ngayphathanh;
     }
 
-    public void setNgayphathanh(int ngay_phat_hanh) {
-        this.ngayphathanh = ngay_phat_hanh;
+    public void setNgayphathanh(int ngayphathanh) {
+        this.ngayphathanh = ngayphathanh;
     }
 
     public String getTacgia() {
@@ -92,8 +90,7 @@ public class Book extends Nhasach {
         this.tennhasach = tennhasach;
     }
 
-
-    public void inputBook () { // nên đặt tên hàm rõ nghĩa hơn, nhập gì?
+    public void inputBook () {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
@@ -127,6 +124,7 @@ public class Book extends Nhasach {
         tennhasach = sc.nextLine();
 
     }
+
     @Override
     public String toString () {
         return "id : " + this.id + ", ten sach: " + this.tensach +
@@ -134,10 +132,10 @@ public class Book extends Nhasach {
                 ", tac gia: " + this.tacgia + ", ngay ban : " + this.ngayban + ", nha sach : " + this.tennhasach;
 
     }
+
     public void outputBook() { // không nên viết tắt
         System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", id, tensach, giasach, ngayphathanh,tacgia,ngayban,tennhasach);
     }
-
 
 }
 

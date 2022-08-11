@@ -1,13 +1,12 @@
 package QLsach;
 
-import java.awt.*;
 import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        // Nên đặt tên biến rõ nghĩa, a là gì, n là gì?
-        int selection, bookNumber = 0; // a => selection, n => bookNumber
+        int selection, bookNumber = 0;
         Book[] books = new Book[100];
         boolean flag = true;
         int currentIndex = bookNumber;
@@ -26,6 +25,7 @@ public class test {
 
             switch (selection) {
                 case 1:
+
                     System.out.println("Nhập số lương sách cần khai báo: ");
                     bookNumber = sc.nextInt();
                     int condition = bookNumber + currentIndex;
@@ -37,61 +37,50 @@ public class test {
                     }
 
                     break;
+
                 case 2:
 
-                    //System.out.printf("%-5s %-15s %-5s %-5s %-10s %-5s %-15s \n", "ID", "Tên sách", "Giá sách", "Ngày phát hành", "Tác Giả", "Ngày bán", "Tên nhà sách");
                     Book[] Temp = new Book[100];
-
                     for (int i = 0; i < books.length; i++) {
-
                         if (books[i] != null ) {
                             Temp[i] = books[i];
-
                             System.out.println(Temp[i]); // check null trước khi thực hiện logic
-
                         }
-
                     }
                     books = Temp;
-
                     break;
+
                 case 3:
 
                     System.out.print("nhập id sách cần tìm : ");
-                    int x = sc.nextInt(); // đặt tên biến rõ nghĩa
+                    int idBookSearch = sc.nextInt(); // đặt tên biến rõ nghĩa
                     for (int i = 0; i < bookNumber; i++) {
-                        if (books[i] != null && x == books[i].id) {
+                        if (books[i] != null && idBookSearch == books[i].id) {
                             books[i].outputBook();
                         }
                     }
                     break;
+
                 case 4:
+
                     float tong = 0;
                     for (int i = 0; i < bookNumber; i++) {
                         if (books[i] != null) {
                             tong += books[i].giasach;
                         }
                     }
+
                     System.out.println("tổng giá tiền sách :" + tong);
                     break;
+
                 case 5:
 
                     System.out.print("nhập id cuốn sách cần xoá :");
-                    int b = sc.nextInt();
-                    //Book book = null;
+                    int idBookDelete = sc.nextInt();
                     Book[] arr = new Book[100];
-
-                    //int size = books.length;
-
-                    // Cần lặp qua các phần tử của mảng books hiện tại, check bookId
-                    // Nếu bookId khác với id cần xoá thì thực hiện copy phần tử sang mảng mới tạo arr
-
                     for (int i = 0; i < bookNumber; i++) {
-
-                        if (books[i] != null && books[i].id != b) {
-
+                        if (books[i] != null && books[i].id != idBookDelete) {
                             arr[i] = books[i];
-
                             System.out.println(arr[i]);
                         }
                         else  {
@@ -100,15 +89,14 @@ public class test {
                     }
                     books = arr;
                     break;
-                case 6 :
-                    // tìm đến bookId cần sửa
-                    boolean back = true;
 
+                case 6 :
+
+                    boolean back = true;
                     System.out.print("nhập id cuốn sách cần sửa :");
-                    int inputrepairId = sc.nextInt();
-                    //Book[] arrnew = new Book[100];
+                    int idBookReair = sc.nextInt();
                     for (int i = 0; i < bookNumber; i++) {
-                        if (books[i] != null && inputrepairId == books[i].id) {
+                        if (books[i] != null && idBookReair == books[i].id) {
                             books[i].outputBook();
 
                             do {
@@ -120,8 +108,8 @@ public class test {
                                         "5.Sửa ngày bán.\n" +
                                         "6.sửa tên nhà sách.\n" +
                                         "Nhập số khác để thoát.");
-                                int d = sc.nextInt();
-                                switch (d) {
+                                int choose = sc.nextInt();
+                                switch (choose) {
                                     case 1:
                                         System.out.print("nhập tên sách cần sửa :");
                                         String nameNew = sc.next();
@@ -138,8 +126,8 @@ public class test {
 
                                     case 3 :
                                         System.out.print("nhập ngày phát hành sách cần sửa :");
-                                        int release_dateNew = sc.nextInt();
-                                        books[i].setNgayphathanh(release_dateNew);
+                                        int releaseDateNew = sc.nextInt();
+                                        books[i].setNgayphathanh(releaseDateNew);
                                         books[i].outputBook();
                                         break;
 
@@ -152,26 +140,24 @@ public class test {
 
                                     case 5 :
                                         System.out.print("nhập ngày bán sách cần sửa :");
-                                        int sale_dateNew = sc.nextInt();
-                                        books[i].setNgayban(sale_dateNew);
+                                        int saleDateNew = sc.nextInt();
+                                        books[i].setNgayban(saleDateNew);
                                         books[i].outputBook();
                                         break;
+
                                     case 6 :
                                         System.out.print("nhập tên cửa cần sửa :");
-                                        String name_storeNew = sc.next();
-                                        books[i].setTennhasach(name_storeNew);
+                                        String nameStoreNew = sc.next();
+                                        books[i].setTennhasach(nameStoreNew);
                                         books[i].outputBook();
                                         break;
 
                                         default :
                                         back = false;
-
                                 }
-
                             }while (back);
                         }
                     }
-
                     break;
 
                 default:
