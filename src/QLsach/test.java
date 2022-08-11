@@ -1,6 +1,7 @@
 package QLsach;
 
 
+import java.awt.*;
 import java.util.Scanner;
 
 
@@ -12,6 +13,7 @@ public class test {
         Book[] books = new Book[100];
         boolean flag = true;
         int currentIndex = n;
+        int count = n;
 
         do {
             System.out.println("Bạn chọn làm gì?");
@@ -31,35 +33,46 @@ public class test {
                     int condition = n + currentIndex;
                     for (int i = currentIndex; i < condition; i++) {
                         currentIndex++;
-                        System.out.println("Sách thứ" + (i + 1) + ": ");
+                        System.out.println("Sách thứ " + (i + 1) + ": ");
                         books[i] = new Book();
-                        books[i].nhap();
+                        books[i].inputBook();
                     }
 
                     break;
                 case 2:
 
-                    System.out.printf("%-5s %-15s %-5s %-5s %-10s %-5s %-15s \n", "ID", "Tên sách", "Giá sách", "Ngày phát hành", "Tác Giả", "Ngày bán", "Tên nhà sách");
-                    for (int i = 0; i < n; i++) {
+                    //System.out.printf("%-5s %-15s %-5s %-5s %-10s %-5s %-15s \n", "ID", "Tên sách", "Giá sách", "Ngày phát hành", "Tác Giả", "Ngày bán", "Tên nhà sách");
+                    Book[] Temp = new Book[100];
 
-                        books[i].hienThiTT(); // check null trước khi thực hiện logic
+                    for (int i = 0; i < books.length; i++) {
+
+                        if (books[i] != null ) {
+                            Temp[i] = books[i];
+
+                            System.out.println(Temp[i]); // check null trước khi thực hiện logic
+
+                        }
 
                     }
+                    books = Temp;
+
                     break;
                 case 3:
 
                     System.out.print("nhập id sách cần tìm : ");
                     int x = sc.nextInt(); // đặt tên biến rõ nghĩa
                     for (int i = 0; i < n; i++) {
-                        if (x == books[i].id) {
-                            books[i].hienThiTT();
+                        if (books[i] != null && x == books[i].id) {
+                            books[i].outputBook();
                         }
                     }
                     break;
                 case 4:
                     float tong = 0;
                     for (int i = 0; i < n; i++) {
-                        tong += books[i].giasach;
+                        if (books[i] != null) {
+                            tong += books[i].giasach;
+                        }
                     }
                     System.out.println("tổng giá tiền sách :" + tong);
                     break;
@@ -83,6 +96,9 @@ public class test {
 
                             System.out.println(arr[i]);
                         }
+                        else  {
+                            System.out.println("Hết mảng cần xoá");
+                        }
                     }
                     books = arr;
                     break;
@@ -95,7 +111,7 @@ public class test {
                     //Book[] arrnew = new Book[100];
                     for (int i = 0; i < n; i++) {
                         if (books[i] != null && c == books[i].id) {
-                            books[i].hienThiTT();
+                            books[i].outputBook();
 
                             do {
                                 System.out.println("Bạn chọn làm gì?");
@@ -112,41 +128,41 @@ public class test {
                                         System.out.print("nhập tên sách cần sửa :");
                                         String nameNew = sc.next();
                                         books[i].setTensach(nameNew);
-                                        books[i].hienThiTT();
+                                        books[i].outputBook();
                                         break;
 
                                     case 2 :
                                         System.out.print("nhập giá sách cần sửa :");
                                         float priceNew = sc.nextFloat();
                                         books[i].setGiasach(priceNew);
-                                        books[i].hienThiTT();
+                                        books[i].outputBook();
                                         break;
 
                                     case 3 :
                                         System.out.print("nhập ngày phát hành sách cần sửa :");
                                         int release_dateNew = sc.nextInt();
-                                        books[i].setNgay_phat_hanh(release_dateNew);
-                                        books[i].hienThiTT();
+                                        books[i].setNgayphathanh(release_dateNew);
+                                        books[i].outputBook();
                                         break;
 
                                     case 4 :
                                         System.out.print("nhập tên tác giả cần sửa :");
                                         String authorNew = sc.next();
                                         books[i].setTacgia(authorNew);
-                                        books[i].hienThiTT();
+                                        books[i].outputBook();
                                         break;
 
                                     case 5 :
                                         System.out.print("nhập ngày bán sách cần sửa :");
                                         int sale_dateNew = sc.nextInt();
                                         books[i].setNgayban(sale_dateNew);
-                                        books[i].hienThiTT();
+                                        books[i].outputBook();
                                         break;
                                     case 6 :
                                         System.out.print("nhập tên cửa cần sửa :");
                                         String name_storeNew = sc.next();
                                         books[i].setTennhasach(name_storeNew);
-                                        books[i].hienThiTT();
+                                        books[i].outputBook();
                                         break;
 
                                         default :

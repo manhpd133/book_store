@@ -12,8 +12,10 @@ public class Book extends Nhasach {
 //     public int id;
 //
 //     public int ngay_phat_hanh;
-    public int id,ngay_phat_hanh;
-    public String tensach,tacgia; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
+    public int id;
+    public int ngayphathanh;
+    public String tensach;
+    public String tacgia; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
     public float giasach;
     public int ngayban;
     public String tennhasach;
@@ -22,12 +24,12 @@ public class Book extends Nhasach {
     public Book(){
 
     } // Sau mỗi block code nên cách dòng
-    public Book (int id,String tensach,float giasach,int ngay_phat_hanh,String tacgia,int ngayban,String tennhasach,String diachi) { // Cần format lại code, sau dấu , nên có khoảng trắng
-        super(id,tennhasach,diachi);
+    public Book (int id, String tensach, float giasach, int ngayphathanh, String tacgia, int ngayban, String tennhasach, String diachi) { // Cần format lại code, sau dấu , nên có khoảng trắng
+        super(id, tennhasach, diachi);
         this.id = id;
         this.tensach = tensach;
         this.giasach = giasach;
-        this.ngay_phat_hanh = ngay_phat_hanh;
+        this.ngayphathanh = ngayphathanh;
         this.tacgia = tacgia;
         this.ngayban = ngayban;
 
@@ -58,11 +60,11 @@ public class Book extends Nhasach {
     }
 
     public int getNgay_phat_hanh() {
-        return ngay_phat_hanh;
+        return ngayphathanh;
     }
 
-    public void setNgay_phat_hanh(int ngay_phat_hanh) {
-        this.ngay_phat_hanh = ngay_phat_hanh;
+    public void setNgayphathanh(int ngay_phat_hanh) {
+        this.ngayphathanh = ngay_phat_hanh;
     }
 
     public String getTacgia() {
@@ -91,7 +93,7 @@ public class Book extends Nhasach {
     }
 
 
-    public void nhap () { // nên đặt tên hàm rõ nghĩa hơn, nhập gì?
+    public void inputBook () { // nên đặt tên hàm rõ nghĩa hơn, nhập gì?
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
@@ -104,15 +106,21 @@ public class Book extends Nhasach {
         System.out.print("nhập giá sách : ");
         giasach = sc.nextFloat();
 
-        System.out.print("nhập ngày phát hành : ");
-        ngay_phat_hanh = sc.nextInt();
+        do {
+            System.out.print("nhập ngày phát hành : ");
+            ngayphathanh = sc.nextInt();
+        } while (ngayphathanh > 31);
+
 
         System.out.print("nhập tác giả : ");
         tacgia = sc.nextLine();
         tacgia = sc.nextLine();
 
-        System.out.print("nhập ngày bán : ");
-        ngayban = sc.nextInt();
+        do {
+            System.out.print("nhập ngày bán : ");
+            ngayban = sc.nextInt();
+        } while (ngayban > 31);
+
 
         System.out.print("nhập tên nhà sách : ");
         tennhasach = sc.nextLine();
@@ -122,12 +130,12 @@ public class Book extends Nhasach {
     @Override
     public String toString () {
         return "id : " + this.id + ", ten sach: " + this.tensach +
-                ", gia sach: " + this.giasach + ", ngay phat hanh: " + this.ngay_phat_hanh +
+                ", gia sach: " + this.giasach + ", ngay phat hanh: " + this.ngayphathanh +
                 ", tac gia: " + this.tacgia + ", ngay ban : " + this.ngayban + ", nha sach : " + this.tennhasach;
 
     }
-    public void hienThiTT() { // không nên viết tắt
-        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", id, tensach, giasach, ngay_phat_hanh,tacgia,ngayban,tennhasach);
+    public void outputBook() { // không nên viết tắt
+        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", id, tensach, giasach, ngayphathanh,tacgia,ngayban,tennhasach);
     }
 
 
