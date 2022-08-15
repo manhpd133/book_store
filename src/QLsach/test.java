@@ -24,7 +24,6 @@ public class test {
 
             switch (selection) {
                 case 1:
-
                     System.out.println("Nhập số lương sách cần khai báo: ");
                     bookNumber = sc.nextInt();
                     int condition = bookNumber + currentIndex;
@@ -34,20 +33,20 @@ public class test {
                         books[i] = new Book();
                         books[i].inputBook();
                     }
+
                     break;
                 case 2:
-
                     Book[] Temp = new Book[100];
                     for (int i = 0; i < books.length; i++) {
                         if (books[i] != null ) {
                             Temp[i] = books[i];
-                            System.out.println(Temp[i]); // check null trước khi thực hiện logic
+                            System.out.println(Temp[i]);
                         }
                     }
+
                     books = Temp;
                     break;
                 case 3:
-
                     System.out.print("nhập id sách cần tìm : ");
                     int idBookSearch = sc.nextInt();
                     for (int i = 0; i < bookNumber; i++) {
@@ -55,9 +54,9 @@ public class test {
                             books[i].outputBook();
                         }
                     }
+
                     break;
                 case 4:
-
                     float tong = 0;
                     for (int i = 0; i < bookNumber; i++) {
                         if (books[i] != null) {
@@ -68,7 +67,6 @@ public class test {
                     System.out.println("tổng giá tiền sách :" + tong);
                     break;
                 case 5:
-
                     System.out.print("nhập id cuốn sách cần xoá :");
                     int idBookDelete = sc.nextInt();
                     Book[] arr = new Book[100];
@@ -76,15 +74,14 @@ public class test {
                         if (books[i] != null && books[i].idBook != idBookDelete) {
                             arr[i] = books[i];
                             System.out.println(arr[i]);
-                        }
-                        else  {
+                        } else {
                             System.out.println("Hết mảng cần xoá");
                         }
                     }
+
                     books = arr;
                     break;
                 case 6 :
-
                     boolean back = true;
                     System.out.print("nhập id cuốn sách cần sửa :");
                     int idBookReair = sc.nextInt();
@@ -143,9 +140,10 @@ public class test {
                                         default :
                                         back = false;
                                 }
-                            }while (back);
+                            } while (back);
                         }
                     }
+
                     break;
                 default:
                     System.out.println("Goodbye");

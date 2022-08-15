@@ -2,7 +2,7 @@ package QLsach;
 
 import java.util.Scanner;
 
-public class Book extends Nhasach {
+public class Book {
 
     public int idBook;
 
@@ -10,7 +10,7 @@ public class Book extends Nhasach {
 
     public String nameBook;
 
-    public String author; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
+    public String author;
 
     public float bookShelves;
 
@@ -18,12 +18,11 @@ public class Book extends Nhasach {
 
     public String nameBookStore;
 
-
-    public Book(){
+    public Book() {
 
     }
-    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale, String nameBookStore, String diachi) {
-        super(idBook, nameBookStore, diachi);
+
+    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale) {
         this.idBook = idBook;
         this.nameBook = nameBook;
         this.bookShelves = bookShelves;
@@ -57,7 +56,7 @@ public class Book extends Nhasach {
         this.bookShelves = bookShelves;
     }
 
-    public int getNgay_phat_hanh() {
+    public int getReleaseDate() {
         return releaseDate;
     }
 
@@ -77,9 +76,8 @@ public class Book extends Nhasach {
         return dateSale;
     }
 
-
-    public void setDateSale(int datenew) {
-        this.dateSale = datenew;
+    public void setDateSale(int newDate) {
+        this.dateSale = newDate;
     }
 
     public String getNameBookStore() {
@@ -108,7 +106,6 @@ public class Book extends Nhasach {
             releaseDate = sc.nextInt();
         } while (releaseDate > 31);
 
-
         System.out.print("nhập tác giả : ");
         author = sc.nextLine();
         author = sc.nextLine();
@@ -118,11 +115,9 @@ public class Book extends Nhasach {
             dateSale = sc.nextInt();
         } while (dateSale > 31);
 
-
         System.out.print("nhập tên nhà sách : ");
         nameBookStore = sc.nextLine();
         nameBookStore = sc.nextLine();
-
     }
 
     @Override
@@ -130,12 +125,10 @@ public class Book extends Nhasach {
         return "id : " + this.idBook + ", ten sach: " + this.nameBook +
                 ", gia sach: " + this.bookShelves + ", ngay phat hanh: " + this.releaseDate +
                 ", tac gia: " + this.author + ", ngay ban : " + this.dateSale + ", nha sach : " + this.nameBookStore;
-
     }
 
     public void outputBook() { // không nên viết tắt
         System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale, nameBookStore);
     }
-
 }
 

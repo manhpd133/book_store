@@ -1,20 +1,20 @@
 package QLsach;
 
-public class Nhasach {
+public class BookStore {
     public int idBookStore;
 
     public String nameBookStore;
 
-    public String adress;
+    public String address;
 
-
-    public Nhasach () {
+    public BookStore() {
 
     }
-    public  Nhasach (int idBookStore, String nameBookStore, String adress) {
+
+    public BookStore(int idBookStore, String nameBookStore, String address) {
         this.idBookStore = idBookStore;
         this.nameBookStore = nameBookStore;
-        this.adress = adress;
+        this.address = address;
     }
 
     public int getIdBook() {
@@ -33,13 +33,11 @@ public class Nhasach {
         this.nameBookStore = nameBookStore;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
-
 }
