@@ -1,136 +1,134 @@
 package QLsach;
 
-
-
-// Nên xoá những import không dùng
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Book extends Nhasach {
-//     Một dòng nên khai một biến
-//     Ví dụ:
-//     public int id;
-//
-//     public int ngay_phat_hanh;
-    public int id,ngay_phat_hanh;
-    public String tensach,tacgia; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
-    public float giasach;
-    public int ngayban;
-    public String tennhasach;
+public class Book {
 
+    public int idBook;
 
-    public Book(){
+    public int releaseDate;
 
-    } // Sau mỗi block code nên cách dòng
-    public Book (int id,String tensach,float giasach,int ngay_phat_hanh,String tacgia,int ngayban,String tennhasach,String diachi) { // Cần format lại code, sau dấu , nên có khoảng trắng
-        super(id,tennhasach,diachi);
-        this.id = id;
-        this.tensach = tensach;
-        this.giasach = giasach;
-        this.ngay_phat_hanh = ngay_phat_hanh;
-        this.tacgia = tacgia;
-        this.ngayban = ngayban;
+    public String nameBook;
+
+    public String author;
+
+    public float bookShelves;
+
+    public int dateSale;
+
+    public String nameBookStore;
+
+    public Book() {
 
     }
 
-    public int getId() {
-        return id;
+    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale) {
+        this.idBook = idBook;
+        this.nameBook = nameBook;
+        this.bookShelves = bookShelves;
+        this.releaseDate = releaseDate;
+        this.author = author;
+        this.dateSale = dateSale;
+
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getIdBook() {
+        return idBook;
     }
 
-    public String getTensach() {
-        return tensach;
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
     }
 
-    public void setTensach(String tensach) {
-        this.tensach = tensach;
+    public String getNameBook() {
+        return nameBook;
     }
 
-    public float getGiasach() {
-        return giasach;
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
     }
 
-    public void setGiasach(float giasach) {
-        this.giasach = giasach;
+    public float getBookShelves() {
+        return bookShelves;
     }
 
-    public int getNgay_phat_hanh() {
-        return ngay_phat_hanh;
+    public void setBookShelves(float bookShelves) {
+        this.bookShelves = bookShelves;
     }
 
-    public void setNgay_phat_hanh(int ngay_phat_hanh) {
-        this.ngay_phat_hanh = ngay_phat_hanh;
+    public int getReleaseDate() {
+        return releaseDate;
     }
 
-    public String getTacgia() {
-        return tacgia;
+    public void setReleaseDate(int releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
-    public void setTacgia(String tacgia) {
-        this.tacgia = tacgia;
+    public String getAuthor() {
+        return author;
     }
 
-    public int getNgayban() {
-        return ngayban;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-
-    public void setNgayban(int datenew) {
-        this.ngayban = datenew;
+    public int getDateSale() {
+        return dateSale;
     }
 
-    public String getTennhasach() {
-        return tennhasach;
+    public void setDateSale(int newDate) {
+        this.dateSale = newDate;
     }
 
-    public void setTennhasach(String tennhasach) {
-        this.tennhasach = tennhasach;
+    public String getNameBookStore() {
+        return nameBookStore;
     }
 
+    public void setNameBookStore(String nameBookStore) {
+        this.nameBookStore = nameBookStore;
+    }
 
-    public void nhap () { // nên đặt tên hàm rõ nghĩa hơn, nhập gì?
+    public void inputBook () {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
-        id = sc.nextInt();
+        idBook = sc.nextInt();
 
         System.out.print("nhập tên sách : ");
-        tensach = sc.nextLine();
-        tensach = sc.nextLine();
+        nameBook = sc.nextLine();
+        nameBook = sc.nextLine();
 
         System.out.print("nhập giá sách : ");
-        giasach = sc.nextFloat();
+        bookShelves = sc.nextFloat();
 
-        System.out.print("nhập ngày phát hành : ");
-        ngay_phat_hanh = sc.nextInt();
+        do {
+            System.out.print("nhập ngày phát hành : ");
+            releaseDate = sc.nextInt();
+        } while (releaseDate > 31);
 
         System.out.print("nhập tác giả : ");
-        tacgia = sc.nextLine();
-        tacgia = sc.nextLine();
+        author = sc.nextLine();
+        author = sc.nextLine();
 
-        System.out.print("nhập ngày bán : ");
-        ngayban = sc.nextInt();
+        do {
+            System.out.print("nhập ngày bán : ");
+            dateSale = sc.nextInt();
+        } while (dateSale > 31);
 
         System.out.print("nhập tên nhà sách : ");
-        tennhasach = sc.nextLine();
-        tennhasach = sc.nextLine();
-
+        nameBookStore = sc.nextLine();
+        nameBookStore = sc.nextLine();
     }
+
     @Override
     public String toString () {
-        return "id : " + this.id + ", ten sach: " + this.tensach +
-                ", gia sach: " + this.giasach + ", ngay phat hanh: " + this.ngay_phat_hanh +
-                ", tac gia: " + this.tacgia + ", ngay ban : " + this.ngayban + ", nha sach : " + this.tennhasach;
-
-    }
-    public void hienThiTT() { // không nên viết tắt
-        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", id, tensach, giasach, ngay_phat_hanh,tacgia,ngayban,tennhasach);
+        return "id : " + this.idBook + ", ten sach: " + this.nameBook +
+                ", gia sach: " + this.bookShelves + ", ngay phat hanh: " + this.releaseDate +
+                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale + ", nha sach : " + this.nameBookStore;
     }
 
-
+    public void outputBook() { // không nên viết tắt
+        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale, nameBookStore);
+    }
 }
 
