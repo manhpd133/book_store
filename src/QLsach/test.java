@@ -11,7 +11,6 @@ public class test {
         boolean flag = true;
         int currentIndex = bookNumber;
 
-
         do {
             System.out.println("Bạn chọn làm gì?");
             System.out.println("1.Nhập thông tin sách. \n" +
@@ -35,9 +34,7 @@ public class test {
                         books[i] = new Book();
                         books[i].inputBook();
                     }
-
                     break;
-
                 case 2:
 
                     Book[] Temp = new Book[100];
@@ -49,37 +46,34 @@ public class test {
                     }
                     books = Temp;
                     break;
-
                 case 3:
 
                     System.out.print("nhập id sách cần tìm : ");
-                    int idBookSearch = sc.nextInt(); // đặt tên biến rõ nghĩa
+                    int idBookSearch = sc.nextInt();
                     for (int i = 0; i < bookNumber; i++) {
-                        if (books[i] != null && idBookSearch == books[i].id) {
+                        if (books[i] != null && idBookSearch == books[i].idBook) {
                             books[i].outputBook();
                         }
                     }
                     break;
-
                 case 4:
 
                     float tong = 0;
                     for (int i = 0; i < bookNumber; i++) {
                         if (books[i] != null) {
-                            tong += books[i].giasach;
+                            tong += books[i].bookShelves;
                         }
                     }
 
                     System.out.println("tổng giá tiền sách :" + tong);
                     break;
-
                 case 5:
 
                     System.out.print("nhập id cuốn sách cần xoá :");
                     int idBookDelete = sc.nextInt();
                     Book[] arr = new Book[100];
                     for (int i = 0; i < bookNumber; i++) {
-                        if (books[i] != null && books[i].id != idBookDelete) {
+                        if (books[i] != null && books[i].idBook != idBookDelete) {
                             arr[i] = books[i];
                             System.out.println(arr[i]);
                         }
@@ -89,14 +83,13 @@ public class test {
                     }
                     books = arr;
                     break;
-
                 case 6 :
 
                     boolean back = true;
                     System.out.print("nhập id cuốn sách cần sửa :");
                     int idBookReair = sc.nextInt();
                     for (int i = 0; i < bookNumber; i++) {
-                        if (books[i] != null && idBookReair == books[i].id) {
+                        if (books[i] != null && idBookReair == books[i].idBook) {
                             books[i].outputBook();
 
                             do {
@@ -113,42 +106,37 @@ public class test {
                                     case 1:
                                         System.out.print("nhập tên sách cần sửa :");
                                         String nameNew = sc.next();
-                                        books[i].setTensach(nameNew);
+                                        books[i].setNameBook(nameNew);
                                         books[i].outputBook();
                                         break;
-
                                     case 2 :
                                         System.out.print("nhập giá sách cần sửa :");
                                         float priceNew = sc.nextFloat();
-                                        books[i].setGiasach(priceNew);
+                                        books[i].setBookShelves(priceNew);
                                         books[i].outputBook();
                                         break;
-
                                     case 3 :
                                         System.out.print("nhập ngày phát hành sách cần sửa :");
                                         int releaseDateNew = sc.nextInt();
-                                        books[i].setNgayphathanh(releaseDateNew);
+                                        books[i].setReleaseDate(releaseDateNew);
                                         books[i].outputBook();
                                         break;
-
                                     case 4 :
                                         System.out.print("nhập tên tác giả cần sửa :");
                                         String authorNew = sc.next();
-                                        books[i].setTacgia(authorNew);
+                                        books[i].setAuthor(authorNew);
                                         books[i].outputBook();
                                         break;
-
                                     case 5 :
                                         System.out.print("nhập ngày bán sách cần sửa :");
                                         int saleDateNew = sc.nextInt();
-                                        books[i].setNgayban(saleDateNew);
+                                        books[i].setDateSale(saleDateNew);
                                         books[i].outputBook();
                                         break;
-
                                     case 6 :
                                         System.out.print("nhập tên cửa cần sửa :");
                                         String nameStoreNew = sc.next();
-                                        books[i].setTennhasach(nameStoreNew);
+                                        books[i].setNameBookStore(nameStoreNew);
                                         books[i].outputBook();
                                         break;
 
@@ -159,7 +147,6 @@ public class test {
                         }
                     }
                     break;
-
                 default:
                     System.out.println("Goodbye");
                     flag = false;

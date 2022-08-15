@@ -4,137 +4,137 @@ import java.util.Scanner;
 
 public class Book extends Nhasach {
 
-    public int id;
+    public int idBook;
 
-    public int ngayphathanh;
+    public int releaseDate;
 
-    public String tensach;
+    public String nameBook;
 
-    public String tacgia; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
+    public String author; // Đặt tên biến nên theo quy tắc (tenSach hoặc ten_sach)
 
-    public float giasach;
+    public float bookShelves;
 
-    public int ngayban;
+    public int dateSale;
 
-    public String tennhasach;
+    public String nameBookStore;
 
 
     public Book(){
 
-    } // Sau mỗi block code nên cách dòng
-    public Book (int id, String tensach, float giasach, int ngayphathanh, String tacgia, int ngayban, String tennhasach, String diachi) { // Cần format lại code, sau dấu , nên có khoảng trắng
-        super(id, tennhasach, diachi);
-        this.id = id;
-        this.tensach = tensach;
-        this.giasach = giasach;
-        this.ngayphathanh = ngayphathanh;
-        this.tacgia = tacgia;
-        this.ngayban = ngayban;
+    }
+    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale, String nameBookStore, String diachi) {
+        super(idBook, nameBookStore, diachi);
+        this.idBook = idBook;
+        this.nameBook = nameBook;
+        this.bookShelves = bookShelves;
+        this.releaseDate = releaseDate;
+        this.author = author;
+        this.dateSale = dateSale;
 
     }
 
-    public int getId() {
-        return id;
+    public int getIdBook() {
+        return idBook;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
     }
 
-    public String getTensach() {
-        return tensach;
+    public String getNameBook() {
+        return nameBook;
     }
 
-    public void setTensach(String tensach) {
-        this.tensach = tensach;
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
     }
 
-    public float getGiasach() {
-        return giasach;
+    public float getBookShelves() {
+        return bookShelves;
     }
 
-    public void setGiasach(float giasach) {
-        this.giasach = giasach;
+    public void setBookShelves(float bookShelves) {
+        this.bookShelves = bookShelves;
     }
 
     public int getNgay_phat_hanh() {
-        return ngayphathanh;
+        return releaseDate;
     }
 
-    public void setNgayphathanh(int ngayphathanh) {
-        this.ngayphathanh = ngayphathanh;
+    public void setReleaseDate(int releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
-    public String getTacgia() {
-        return tacgia;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setTacgia(String tacgia) {
-        this.tacgia = tacgia;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public int getNgayban() {
-        return ngayban;
+    public int getDateSale() {
+        return dateSale;
     }
 
 
-    public void setNgayban(int datenew) {
-        this.ngayban = datenew;
+    public void setDateSale(int datenew) {
+        this.dateSale = datenew;
     }
 
-    public String getTennhasach() {
-        return tennhasach;
+    public String getNameBookStore() {
+        return nameBookStore;
     }
 
-    public void setTennhasach(String tennhasach) {
-        this.tennhasach = tennhasach;
+    public void setNameBookStore(String nameBookStore) {
+        this.nameBookStore = nameBookStore;
     }
 
     public void inputBook () {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
-        id = sc.nextInt();
+        idBook = sc.nextInt();
 
         System.out.print("nhập tên sách : ");
-        tensach = sc.nextLine();
-        tensach = sc.nextLine();
+        nameBook = sc.nextLine();
+        nameBook = sc.nextLine();
 
         System.out.print("nhập giá sách : ");
-        giasach = sc.nextFloat();
+        bookShelves = sc.nextFloat();
 
         do {
             System.out.print("nhập ngày phát hành : ");
-            ngayphathanh = sc.nextInt();
-        } while (ngayphathanh > 31);
+            releaseDate = sc.nextInt();
+        } while (releaseDate > 31);
 
 
         System.out.print("nhập tác giả : ");
-        tacgia = sc.nextLine();
-        tacgia = sc.nextLine();
+        author = sc.nextLine();
+        author = sc.nextLine();
 
         do {
             System.out.print("nhập ngày bán : ");
-            ngayban = sc.nextInt();
-        } while (ngayban > 31);
+            dateSale = sc.nextInt();
+        } while (dateSale > 31);
 
 
         System.out.print("nhập tên nhà sách : ");
-        tennhasach = sc.nextLine();
-        tennhasach = sc.nextLine();
+        nameBookStore = sc.nextLine();
+        nameBookStore = sc.nextLine();
 
     }
 
     @Override
     public String toString () {
-        return "id : " + this.id + ", ten sach: " + this.tensach +
-                ", gia sach: " + this.giasach + ", ngay phat hanh: " + this.ngayphathanh +
-                ", tac gia: " + this.tacgia + ", ngay ban : " + this.ngayban + ", nha sach : " + this.tennhasach;
+        return "id : " + this.idBook + ", ten sach: " + this.nameBook +
+                ", gia sach: " + this.bookShelves + ", ngay phat hanh: " + this.releaseDate +
+                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale + ", nha sach : " + this.nameBookStore;
 
     }
 
     public void outputBook() { // không nên viết tắt
-        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", id, tensach, giasach, ngayphathanh,tacgia,ngayban,tennhasach);
+        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale, nameBookStore);
     }
 
 }

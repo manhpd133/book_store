@@ -1,44 +1,44 @@
 package QLsach;
 
-public abstract class Nhasach {
-    public int id;
+public class Nhasach {
+    public int idBookStore;
 
-    public String tennhasach;
+    public String nameBookStore;
 
-    public String diachi;
+    public String adress;
 
 
     public Nhasach () {
 
     }
-    public  Nhasach (int id,String tennhasach,String diachi) {
-        this.id = id;
-        this.tennhasach = tennhasach;
-        this.diachi = diachi;
+    public  Nhasach (int idBookStore, String nameBookStore, String adress) {
+        this.idBookStore = idBookStore;
+        this.nameBookStore = nameBookStore;
+        this.adress = adress;
     }
 
-    public int getId() {
-        return id;
+    public int getIdBook() {
+        return idBookStore;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdBook(int idBook) {
+        this.idBookStore = idBook;
     }
 
-    public String getTennhasach() {
-        return tennhasach;
+    public String getNameBookStore() {
+        return nameBookStore;
     }
 
-    public void setTennhasach(String tennhasach) {
-        this.tennhasach = tennhasach;
+    public void setNameBookStore(String nameBookStore) {
+        this.nameBookStore = nameBookStore;
     }
 
-    public String getDiachi() {
-        return diachi;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setDiachi(String diachi) {
-        this.diachi = diachi;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
 
