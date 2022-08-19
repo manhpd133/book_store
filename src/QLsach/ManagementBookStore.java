@@ -8,7 +8,7 @@ public class ManagementBookStore {
     private ArrayList<BookStore> list;
 
     public ManagementBookStore() {
-        list = new ArrayList<BookStore>(100);
+        list = new ArrayList<BookStore>();
     }
 
     public void addStore(BookStore stores) {
@@ -16,19 +16,14 @@ public class ManagementBookStore {
     }
 
     public void removeStore(BookStore stores) {
-
     }
 
-    int storeNumber = 0;
-
-    public void inputList(Scanner sc) {
+    public void inputList() {
+        Scanner sc = new Scanner(System.in);
         BookStore stores;
-        int countIndex = storeNumber;
         System.out.print("Nhập số nhà sách : ");
-        storeNumber = sc.nextInt();
-        int assginIndex = storeNumber + countIndex;
-        for ( int i = countIndex; i < assginIndex; i ++) {
-            countIndex++;
+        int storeNumber = sc.nextInt();
+        for ( int i = 0; i < storeNumber; i ++) {
             System.out.println("Nhà sách " + (i + 1) + ": ");
             stores = new BookStore();
             stores.inputBookStore(sc);

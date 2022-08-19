@@ -30,7 +30,6 @@ public class Book {
         this.author = author;
         this.dateSale = dateSale;
         this.bookStore = bookStore;
-
     }
 
     public int getIdBook() {
@@ -115,7 +114,7 @@ public class Book {
         do {
             System.out.print("nhập ngày bán : ");
             dateSale = sc.nextInt();
-        } while (dateSale > 31);
+        } while (dateSale > 31 && dateSale < 0);
     }
 
     @Override

@@ -19,14 +19,12 @@ public class main {
             select = sc.nextInt();
             switch (select) {
                 case MenuDefine.INPUT_BOOK_STORE_SELECTION :
-                    managementBookStore.inputList(sc);
+                    managementBookStore.inputList();
                     break;
                 case MenuDefine.OUTPUT_BOOK_STORE :
                     System.out.println("Danh sách nhà sách vừa nhập :");
                     managementBookStore.outputList(books);
-
                     break;
-
                 case MenuDefine.SEARCH_BOOK_STORE :
                     BookStore searchBookStore = managementBookStore.storeSearch(books);
 
@@ -161,7 +159,6 @@ public class main {
                     break;
             }
         } while (check);
-
     }
 }
 
