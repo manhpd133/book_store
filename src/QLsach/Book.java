@@ -16,20 +16,20 @@ public class Book {
 
     public int dateSale;
 
-    public String nameBookStore;
+    public BookStore bookStore;
 
     public Book() {
 
     }
 
-    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale) {
+    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale, BookStore bookStore) {
         this.idBook = idBook;
         this.nameBook = nameBook;
         this.bookShelves = bookShelves;
         this.releaseDate = releaseDate;
         this.author = author;
         this.dateSale = dateSale;
-
+        this.bookStore = bookStore;
     }
 
     public int getIdBook() {
@@ -80,15 +80,16 @@ public class Book {
         this.dateSale = newDate;
     }
 
-    public String getNameBookStore() {
-        return nameBookStore;
+    public BookStore getBookStore() {
+        return bookStore;
     }
 
-    public void setNameBookStore(String nameBookStore) {
-        this.nameBookStore = nameBookStore;
+    public void setBookStore(BookStore bookStore) {
+        this.bookStore = bookStore;
     }
 
-    public void inputBook () {
+    public void inputBook (BookStore bookStore) {
+        this.bookStore = bookStore;
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
@@ -113,22 +114,18 @@ public class Book {
         do {
             System.out.print("nhập ngày bán : ");
             dateSale = sc.nextInt();
-        } while (dateSale > 31);
-
-        System.out.print("nhập tên nhà sách : ");
-        nameBookStore = sc.nextLine();
-        nameBookStore = sc.nextLine();
+        } while (dateSale > 31 && dateSale < 0);
     }
 
     @Override
     public String toString () {
-        return "id : " + this.idBook + ", ten sach: " + this.nameBook +
+        return  "id : " + this.idBook + ", ten sach: " + this.nameBook +
                 ", gia sach: " + this.bookShelves + ", ngay phat hanh: " + this.releaseDate +
-                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale + ", nha sach : " + this.nameBookStore;
+                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale;
     }
 
-    public void outputBook() { // không nên viết tắt
-        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d %-15s \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale, nameBookStore);
+    public void outputBook() {
+        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale);
     }
 }
 
