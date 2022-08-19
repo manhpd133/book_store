@@ -8,7 +8,7 @@ public class main {
         Scanner sc = new Scanner(System.in);
         int selection,select, bookNumber = 0;
         Book[] books = new Book[100];
-        ManagementBookStore bookStore = new ManagementBookStore();
+        ManagementBookStore managementBookStore = new ManagementBookStore();
         boolean flag = true;
         boolean check = true;
         int currentIndex = bookNumber;
@@ -19,16 +19,17 @@ public class main {
             select = sc.nextInt();
             switch (select) {
                 case MenuDefine.INPUT_BOOK_STORE_SELECTION :
-                    bookStore.inputList(sc);
+                    managementBookStore.inputList(sc);
                     break;
                 case MenuDefine.OUTPUT_BOOK_STORE :
                     System.out.println("Danh sách nhà sách vừa nhập :");
-                    bookStore.outputList();
+                    managementBookStore.outputList(books);
+
                     break;
 
                 case MenuDefine.SEARCH_BOOK_STORE :
-                    bookStore.storeSearch(sc);
-                    System.out.println("Nhà sách vừa tìm kiếm :");
+                    BookStore searchBookStore = managementBookStore.storeSearch(books);
+
                     do {
                         MenuDefine.printBookMenu();
                         selection = sc.nextInt();
@@ -42,7 +43,7 @@ public class main {
                                     currentIndex++;
                                     System.out.println("Sách thứ " + (i + 1) + ": ");
                                     books[i] = new Book();
-                                    books[i].inputBook();
+                                    books[i].inputBook(searchBookStore);
                                 }
 
                                 break;
@@ -148,9 +149,10 @@ public class main {
                         }
                     } while (flag);
 
+                    break;
                 case MenuDefine.REMOVE_BOOK_STORE :
                     System.out.println("Danh sách nhà sách sau khi xoá :");
-                    bookStore.removeStore(sc);
+                    managementBookStore.removeStore(books);
                     break;
 
                 default :

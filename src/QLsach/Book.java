@@ -16,18 +16,20 @@ public class Book {
 
     public int dateSale;
 
+    public BookStore bookStore;
 
     public Book() {
 
     }
 
-    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale) {
+    public Book (int idBook, String nameBook, float bookShelves, int releaseDate, String author, int dateSale, BookStore bookStore) {
         this.idBook = idBook;
         this.nameBook = nameBook;
         this.bookShelves = bookShelves;
         this.releaseDate = releaseDate;
         this.author = author;
         this.dateSale = dateSale;
+        this.bookStore = bookStore;
 
     }
 
@@ -79,8 +81,16 @@ public class Book {
         this.dateSale = newDate;
     }
 
-    public void inputBook () {
+    public BookStore getBookStore() {
+        return bookStore;
+    }
 
+    public void setBookStore(BookStore bookStore) {
+        this.bookStore = bookStore;
+    }
+
+    public void inputBook (BookStore bookStore) {
+        this.bookStore = bookStore;
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
@@ -110,15 +120,13 @@ public class Book {
 
     @Override
     public String toString () {
-        BookStore bookStore = new BookStore();
         return  "id : " + this.idBook + ", ten sach: " + this.nameBook +
                 ", gia sach: " + this.bookShelves + ", ngay phat hanh: " + this.releaseDate +
-                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale ;
+                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale;
     }
 
     public void outputBook() {
-        BookStore bookStore = new BookStore();
-        System.out.printf("%-15s %-5d %-15s %-3f %-10d %-15s %-5d \n", bookStore.nameBookStore, idBook, nameBook, bookShelves, releaseDate, author, dateSale);
+        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale);
     }
 }
 

@@ -55,10 +55,23 @@ public class BookStore {
         address = sc.nextLine();
     }
 
-    public void outputBookStore() {
-        System.out.println("=====");
+    public void outputBookStore(Book[] books) {
+        System.out.println("==========================");
         System.out.println("ID cửa hàng : " + idBookStore);
         System.out.println("Tên cửa hàng : " + nameBookStore);
         System.out.println("Địa chỉ : " + address);
+        System.out.println("danh sách sách : ");
+
+        boolean hasBook = false;
+        for (Book b : books) {
+            if (b != null && b.bookStore.idBookStore == idBookStore) {
+                b.outputBook();
+                hasBook = true;
+            }
+        }
+
+        if (!hasBook) {
+            System.out.println("không có\n");
+        }
     }
 }
