@@ -16,6 +16,7 @@ public class ManagementBookStore {
     }
 
     public void removeStore(BookStore stores) {
+        list.remove(stores);
     }
 
     public void inputList() {
@@ -26,7 +27,7 @@ public class ManagementBookStore {
         for ( int i = 0; i < storeNumber; i ++) {
             System.out.println("Nhà sách " + (i + 1) + ": ");
             stores = new BookStore();
-            stores.inputBookStore(sc);
+            stores.inputBookStore();
             addStore(stores);
         }
     }
