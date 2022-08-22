@@ -1,13 +1,14 @@
 package QLsach;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ManagementBook {
-    private ArrayList<Book> list;
+    private List<Book> list;
 
     public ManagementBook() {
-        list = new ArrayList<Book>();
+        list = new ArrayList<>();
     }
 
     public void addBook(Book books) {
@@ -18,13 +19,19 @@ public class ManagementBook {
         list.remove(books);
     }
 
-    public int bookNumber;
+    public List<Book> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Book> list) {
+        this.list = list;
+    }
 
     public void inputListBook(BookStore bookStore) {
         Scanner sc = new Scanner(System.in);
         Book books;
         System.out.println("Nhập số lương sách cần khai báo: ");
-        bookNumber = sc.nextInt();
+        int bookNumber = sc.nextInt();
         for (int i = 0; i < bookNumber; i++) {
             System.out.println("Sách thứ " + (i + 1) + ": ");
             books = new Book();
@@ -33,7 +40,7 @@ public class ManagementBook {
         }
     }
 
-    public void outputListBook(Book[] books) {
+    public void outputListBook() {
         int i = 0;
         for (Book book :list) {
             System.out.println("\nSách thứ " + (i + 1) + ":");
@@ -42,18 +49,18 @@ public class ManagementBook {
         }
     }
 
-    public void bookSearch(Book[] books) {
+    public void bookSearch() {
         Scanner sc = new Scanner(System.in);
         System.out.print("nhập id sách cần tìm : ");
         int idBookSearch = sc.nextInt();
-        for (int i = 0; i < bookNumber; i++) {
-            if (books[i] != null && idBookSearch == books[i].idBook) {
-                books[i].outputBook();
+        for (Book books : list) {
+            if (books != null && idBookSearch == books.idBook) {
+                books.outputBook();
             }
         }
     }
 
-    public void bookSum(Book[] books) {
+    public void bookSum() {
         float sum = 0;
         for (Book book : list) {
             if (book != null) {
@@ -78,7 +85,7 @@ public class ManagementBook {
         }
     }
 
-    public void bookEdit(Book[] books) {
+    public void bookEdit() {
         Scanner sc = new Scanner(System.in);
         boolean back = true;
         System.out.print("nhập id cuốn sách cần sửa :");

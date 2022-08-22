@@ -1,5 +1,6 @@
 package QLsach;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BookStore {
@@ -56,7 +57,7 @@ public class BookStore {
         address = sc.nextLine();
     }
 
-    public void outputBookStore(Book[] books) {
+    public void outputBookStore(List<Book> books) {
         System.out.println("==========================");
         System.out.println("ID cửa hàng : " + idBookStore);
         System.out.println("Tên cửa hàng : " + nameBookStore);

@@ -7,7 +7,6 @@ public class main {
 
         Scanner sc = new Scanner(System.in);
         int selection,select;
-        Book[] books = new Book[100];
         ManagementBook managementBook = new ManagementBook();
         ManagementBookStore managementBookStore = new ManagementBookStore();
         boolean flag = true;
@@ -23,10 +22,10 @@ public class main {
                     break;
                 case MenuDefine.OUTPUT_BOOK_STORE :
                     System.out.println("Danh sách nhà sách vừa nhập :");
-                    managementBookStore.outputList(books);
+                    managementBookStore.outputList(managementBook.getList());
                     break;
                 case MenuDefine.SEARCH_BOOK_STORE :
-                    BookStore searchBookStore = managementBookStore.storeSearch(books);
+                    BookStore searchBookStore = managementBookStore.storeSearch(managementBook.getList());
 
                     do {
                         MenuDefine.printBookMenu();
@@ -34,23 +33,22 @@ public class main {
 
                         switch (selection) {
                             case MenuDefine.INPUT_BOOK_SELECTION:
-                                BookStore bookStore = new BookStore();
-                                managementBook.inputListBook(bookStore);
+                                managementBook.inputListBook(searchBookStore);
                                 break;
                             case MenuDefine.OUTPUT_BOOK:
-                                managementBook.outputListBook(books);
+                                managementBook.outputListBook();
                                 break;
                             case MenuDefine.SEARCH_BOOK:
-                                managementBook.bookSearch(books);
+                                managementBook.bookSearch();
                                 break;
                             case MenuDefine.SUM_SHELVES_BOOK:
-                                managementBook.bookSum(books);
+                                managementBook.bookSum();
                                 break;
                             case MenuDefine.REMOVE_BOOK:
                                 managementBook.bookRemove();
                                 break;
                             case MenuDefine.EDIT_BOOK :
-                                managementBook.bookEdit(books);
+                                managementBook.bookEdit();
                                 break;
                             default:
                                 flag = false;
@@ -59,10 +57,13 @@ public class main {
 
                     break;
                 case MenuDefine.REMOVE_BOOK_STORE :
-                    managementBookStore.removeStore(books);
+                    managementBookStore.removeStore(managementBook.getList());
 
                     break;
+                case MenuDefine.EDIT_BOOK_STORE:
+                    managementBookStore.editStore(managementBook.getList());
 
+                    break;
                 default :
                     System.out.println("Goodbye");
                     check = false;
@@ -71,5 +72,3 @@ public class main {
         } while (check);
     }
 }
-
-

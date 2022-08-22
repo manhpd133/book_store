@@ -1,6 +1,7 @@
 package QLsach;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ManagementBookStore {
@@ -32,16 +33,16 @@ public class ManagementBookStore {
         }
     }
 
-    public void outputList(Book[] books) {
+    public void outputList(List<Book> books) {
         int i = 0;
-         for (BookStore stores : list) {
-             System.out.println("\n Nhà sách thứ " + (i + 1) + ":");
-             stores.outputBookStore(books);
-             i++;
-         }
+        for (BookStore stores : list) {
+            System.out.println("\n Nhà sách thứ " + (i + 1) + ":");
+            stores.outputBookStore(books);
+            i++;
+        }
     }
 
-    public BookStore storeSearch(Book[] books) {
+    public BookStore storeSearch(List<Book> books) {
         BookStore searchBookStore = null;
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập id nhà sách cần tìm : ");
@@ -56,10 +57,10 @@ public class ManagementBookStore {
             }
         }
 
-       return searchBookStore;
+        return searchBookStore;
     }
 
-    public void removeStore(Book[] books) {
+    public void removeStore(List<Book> books) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập id cần xoá : ");
         int idStoreRemove = sc.nextInt();
@@ -74,7 +75,7 @@ public class ManagementBookStore {
         }
     }
 
-    public void editStore(Book[] books) {
+    public void editStore(List<Book> books) {
         Scanner sc = new Scanner(System.in);
         Boolean back = true;
         System.out.print("Nhập id cần sửa : ");
@@ -108,3 +109,4 @@ public class ManagementBookStore {
         }
     }
 }
+

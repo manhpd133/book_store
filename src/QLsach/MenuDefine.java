@@ -6,12 +6,14 @@ public class MenuDefine {
     public static final int OUTPUT_BOOK_STORE = 2;
     public static final int SEARCH_BOOK_STORE = 3;
     public static final int REMOVE_BOOK_STORE = 4;
+    public static final int EDIT_BOOK_STORE = 5;
 
     public static void printBookStoreMenu() {
         System.out.println("1.Nhập thông nhà sách. \n" +
                             "2.Xuất danh sách nhà sách.\n" +
                             "3.Tìm kiếm nhà sách.\n" +
                             "4.xoá nhà sách.\n" +
+                            "5.Sửa thông tin nhà sách.\n" +
                             "Nhập số khác để thoát.");
     }
 

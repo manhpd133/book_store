@@ -115,11 +115,10 @@ public class Book {
         do {
             System.out.print("nhập ngày bán : ");
             dateSale = sc.nextInt();
-        } while (dateSale > 31 && dateSale < 0);
+        } while (dateSale > 31 || dateSale <= 0);
     }
 
     public void outputBook() {
         System.out.printf("Id sách:%-5d Tên sách: %-7s Giá tiền: %-3f  Ngày phát hành: %-3d Tác giả :%-7s Ngày bán: %-5d\n", idBook, nameBook, bookShelves, releaseDate, author, dateSale);
     }
 }
-
