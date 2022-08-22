@@ -88,7 +88,7 @@ public class ManagementBook {
                 book.outputBook();
 
                 do {
-                    MenuDefine.printEditMenu();
+                    MenuDefine.printEditMenuBook();
                     int choose = sc.nextInt();
                     switch (choose) {
                         case MenuDefine.EDIT_NAME_BOOK:

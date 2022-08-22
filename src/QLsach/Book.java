@@ -118,15 +118,8 @@ public class Book {
         } while (dateSale > 31 && dateSale < 0);
     }
 
-    @Override
-    public String toString () {
-        return  "id : " + this.idBook + ", ten sach: " + this.nameBook +
-                ", gia sach: " + this.bookShelves + ", ngay phat hanh: " + this.releaseDate +
-                ", tac gia: " + this.author + ", ngay ban : " + this.dateSale;
-    }
-
     public void outputBook() {
-        System.out.printf("%-5d %-15s %-3f %-10d %-15s %-5d \n", idBook, nameBook, bookShelves, releaseDate, author, dateSale);
+        System.out.printf("Id sách:%-5d Tên sách: %-7s Giá tiền: %-3f  Ngày phát hành: %-3d Tác giả :%-7s Ngày bán: %-5d\n", idBook, nameBook, bookShelves, releaseDate, author, dateSale);
     }
 }
 

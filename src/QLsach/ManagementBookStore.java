@@ -63,12 +63,47 @@ public class ManagementBookStore {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập id cần xoá : ");
         int idStoreRemove = sc.nextInt();
+        System.out.println("Danh sách nhà sách sau khi xoá :");
         for(BookStore stores : list) {
             if (stores != null && stores.getIdBookStore() != idStoreRemove) {
                 removeStore(stores);
                 stores.outputBookStore(books);
             } else {
                 System.out.println("Hết danh sách cần xoá !!!!!");
+            }
+        }
+    }
+
+    public void editStore(Book[] books) {
+        Scanner sc = new Scanner(System.in);
+        Boolean back = true;
+        System.out.print("Nhập id cần sửa : ");
+        int idStoreEdit = sc.nextInt();
+        for (BookStore bookStore :list) {
+            if (bookStore != null && idStoreEdit == bookStore.idBookStore) {
+                bookStore.outputBookStore(books);
+
+                do {
+                    MenuDefine.printEditMenuStore();
+                    int choose = sc.nextInt();
+                    switch (choose) {
+                        case MenuDefine.EDIT_NAME_BOOKSTORE:
+                            System.out.print("nhập tên nhà sách cần sửa :");
+                            String nameNew = sc.next();
+                            bookStore.setNameBookStore(nameNew);
+                            bookStore.outputBookStore(books);
+                            break;
+                        case MenuDefine.EDIT_ADDRESS_BOOKSTORE:
+                            System.out.print("nhập địa chỉ nhà sách cần sửa :");
+                            String addressNew = sc.next();
+                            bookStore.setAddress(addressNew);
+                            bookStore.outputBookStore(books);
+                            break;
+
+                        default :
+                            back = false;
+                    }
+                } while (back);
             }
         }
     }

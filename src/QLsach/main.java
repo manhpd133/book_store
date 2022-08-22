@@ -1,6 +1,5 @@
 package QLsach;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -60,8 +59,8 @@ public class main {
 
                     break;
                 case MenuDefine.REMOVE_BOOK_STORE :
-                    System.out.println("Danh sách nhà sách sau khi xoá :");
                     managementBookStore.removeStore(books);
+
                     break;
 
                 default :
