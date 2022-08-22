@@ -43,7 +43,8 @@ public class BookStore {
         this.address = address;
     }
 
-    public void inputBookStore(Scanner sc) {
+    public void inputBookStore() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Nhập id nhà sách :");
         idBookStore = sc.nextInt();
 
