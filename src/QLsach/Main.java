@@ -2,13 +2,11 @@ package QLsach;
 
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         int selection,select;
-        ManagementBook managementBook = new ManagementBook();
-        ManagementBookStore managementBookStore = new ManagementBookStore();
         boolean flag = true;
         boolean check = true;
 
@@ -18,50 +16,49 @@ public class main {
             select = sc.nextInt();
             switch (select) {
                 case MenuDefine.INPUT_BOOK_STORE_SELECTION :
-                    managementBookStore.inputList();
+                    ManagementData.insertBookStore();
                     break;
                 case MenuDefine.OUTPUT_BOOK_STORE :
                     System.out.println("Danh sách nhà sách vừa nhập :");
-                    managementBookStore.outputList(managementBook.getList());
+                    ManagementData.showBookStore();
                     break;
                 case MenuDefine.SEARCH_BOOK_STORE :
-                    BookStore searchBookStore = managementBookStore.storeSearch(managementBook.getList());
-
+                    ManagementData.findBookStore();
+                    break;
+                case MenuDefine.REMOVE_BOOK_STORE :
+                    ManagementData.deleteBookStore();
+                    break;
+                case MenuDefine.EDIT_BOOK_STORE:
+                    ManagementData.updateBookStore();
+                    break;
+                case MenuDefine.MENU_BOOK:
                     do {
                         MenuDefine.printBookMenu();
                         selection = sc.nextInt();
 
                         switch (selection) {
                             case MenuDefine.INPUT_BOOK_SELECTION:
-                                managementBook.inputListBook(searchBookStore);
+                                ManagementData.insertBook();
                                 break;
                             case MenuDefine.OUTPUT_BOOK:
-                                managementBook.outputListBook();
+                                ManagementData.showBook();
                                 break;
                             case MenuDefine.SEARCH_BOOK:
-                                managementBook.bookSearch();
+                                ManagementData.findBook();
                                 break;
                             case MenuDefine.SUM_SHELVES_BOOK:
-                                managementBook.bookSum();
+                                ManagementData.sumShelvesBook();
                                 break;
                             case MenuDefine.REMOVE_BOOK:
-                                managementBook.bookRemove();
+                                ManagementData.deleteBook();
                                 break;
                             case MenuDefine.EDIT_BOOK :
-                                managementBook.bookEdit();
+                                ManagementData.updateBook();
                                 break;
                             default:
                                 flag = false;
                         }
                     } while (flag);
-
-                    break;
-                case MenuDefine.REMOVE_BOOK_STORE :
-                    managementBookStore.removeStore(managementBook.getList());
-
-                    break;
-                case MenuDefine.EDIT_BOOK_STORE:
-                    managementBookStore.editStore(managementBook.getList());
 
                     break;
                 default :
