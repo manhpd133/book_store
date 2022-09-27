@@ -1,9 +1,8 @@
 package QLsach;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Book {
+public class Book extends BookStore{
 
     public int idBook;
 
@@ -30,7 +29,7 @@ public class Book {
         this.releaseDate = releaseDate;
         this.author = author;
         this.dateSale = dateSale;
-        this.bookStore = bookStore;
+        this.bookStore= bookStore;
     }
 
     public int getIdBook() {
@@ -89,8 +88,17 @@ public class Book {
         this.bookStore = bookStore;
     }
 
-    public void inputBook (BookStore bookStore) {
-        this.bookStore = bookStore;
+    @Override
+    public  String toString(){
+
+        return "idBook: " + idBook +"|| "+ "nameBook :" + nameBook +" ||"+ "bookShelves :" + bookShelves +" ||"+ "releaseDate :" + releaseDate +" ||"+ "author :" + author +" ||"+ "dateSale :" + dateSale +" ||" + "idBookStore :" + bookStore.idBookStore ;
+    }
+
+    public void displaybook() {
+        System.out.println(this);
+    }
+
+    public void inputBook () {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("nhập id : ");
@@ -103,23 +111,21 @@ public class Book {
         System.out.print("nhập giá sách : ");
         bookShelves = sc.nextFloat();
 
-        do {
-            System.out.print("nhập ngày phát hành : ");
-            releaseDate = sc.nextInt();
-        } while (releaseDate > 31);
-
         System.out.print("nhập tác giả : ");
         author = sc.nextLine();
         author = sc.nextLine();
 
+        System.out.print("nhập id nhà sách : ");
+        idBookStore = sc.nextInt();
+
+        do {
+            System.out.print("nhập ngày phát hành : ");
+            releaseDate = sc.nextInt();
+        } while (releaseDate > 31|| releaseDate <= 0);
+
         do {
             System.out.print("nhập ngày bán : ");
             dateSale = sc.nextInt();
-        } while (dateSale > 31 && dateSale < 0);
-    }
-
-    public void outputBook() {
-        System.out.printf("Id sách:%-5d Tên sách: %-7s Giá tiền: %-3f  Ngày phát hành: %-3d Tác giả :%-7s Ngày bán: %-5d\n", idBook, nameBook, bookShelves, releaseDate, author, dateSale);
+        } while (dateSale > 31 || dateSale <= 0);
     }
 }
-
